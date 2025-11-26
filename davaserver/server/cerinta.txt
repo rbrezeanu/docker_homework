@@ -1,0 +1,62 @@
+Pe al doilea server de linux vreau sa creze 3 foldere unul scripts unul data si al doilea result.
+Vreau ca in data sa faceti un fisier cu numele long_words.txt sa puneti aceste cuvinte din engleza:
+pneumonoultramicroscopicsilicovolcanoconiosis
+hippopotomonstrosesquipedaliophobia
+supercalifragilisticexpialidocious
+pseudopseudohypoparathyroidism
+floccinaucinihilipilification
+antidisestablishmentarianism
+electroencephalographically
+thyroparathyroidectomized
+psychoneuroendocrinological
+radioimmunoelectrophoresis
+hepaticocholangiogastrostomy
+spectrophotofluorometrically
+psychopharmacotherapeutics
+immunoelectrophoretically
+psychoneuroimmunology
+otorhinolaryngological
+incomprehensibilities
+uncharacteristically
+overintellectualization
+counterrevolutionaries
+thyrocalcitonin
+microelectrophoresis
+transubstantiationalist
+magnetohydrodynamically
+electroencephalograph
+psychophysiologically
+radioimmunoassayable
+counterdemonstrations
+thyroparathyroidectomy
+immunohistochemically
+ultramicroscopically
+antitransubstantiationalist
+subcompartmentalization
+disproportionableness
+microspectrophotometries
+incomprehensibleness
+uncontrollabilities
+hypermetropia
+bioelectromagnetism
+counterproductiveness
+multidimensionalities
+neuropsychopharmacology
+microcrystallographically
+psychoneuroimmunological
+thyroparathyroidectomies
+otorhinolaryngologist
+radioimmunoelectrophoretic
+ultramicroscopical
+immunohistochemical
+incomprehensibility
+
+hint: copiaza toate cuvintele, deschide linux creaza folderul dupa in folder scrie asa:
+ echo “……...” > long_words.txt
+la final dai cat long_words.txt si vezi sa ai ce trebuie
+Dupa in scripts creaza un script in python care are 5 functii una care sa
+obtina cel mai lung cuvant, alta care sa obtina cel mai scurt cuvant,
+alta care sa imi spuna numarul de consoane si vocale din fiecare cuvant,
+alta care imi ordoneaza toate cuvintele lexicographic si ultima care sa imi spuna ce
+cuvant are cele mai multe consoane consecutive.
+Pentru fiecare cerinta sa se crezee in rezult un fisier cu raspunsul.

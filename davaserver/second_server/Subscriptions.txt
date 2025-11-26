@@ -1,0 +1,35 @@
+Dell
+    Bronze:-
+    Silver:Power Cord Failure, Cooling System Failure,Battery Failure,Inverter Failure,Optical Drive Failure
+    Gold:Power Cord Failure, Cooling System Failure,CPU Cooling Fan Failure, RAM Failure, Hard Drive Failure,Battery Failure,Inverter Failure,Optical Drive Failure
+    Platinum:Motherboard Failure, PCIe Lane Failure,Power Cord Failure, Cooling System Failure,CPU Cooling Fan Failure, RAM Failure, Network Card Failure,Hard Drive Failure,Battery Failure,Inverter Failure,Optical Drive Failure
+
+HP
+    Bronze:Power Cord Failure,RAID Controller Failure
+    Silver:Power Cord Failure, Cooling System Failure,Network Card Failure,RAID Controller Failure
+    Gold:Power Cord Failure, Cooling System Failure,Hard Drive Failure,Network Card Failure,Battery Failure,RAID Controller Failure,Storage Drive Failure
+    Platinum:Motherboard Failure, PCIe Lane Failure,Power Cord Failure, Network Card Failure,Cooling System Failure,CPU Cooling Fan Failure, RAM Failure, Hard Drive Failure,Battery Failure,RAID Controller Failure,Storage Drive Failure,Case Cooling Fan Failure
+
+CISCO
+    Bronze:Cooling System Failure,Storage Drive Failure
+    Silver:Power Cord Failure, Cooling System Failure,Storage Drive Failure
+    Gold:Power Cord Failure, Cooling System Failure,RAM Failure, Hard Drive Failure,Capacitor Failure,Storage Drive Failure
+    Platinum:Motherboard Failure, PCIe Lane Failure,Power Cord Failure,Network Card Failure, Cooling System Failure,CPU Cooling Fan Failure, RAM Failure, Hard Drive Failure,Battery Failure,Capacitor Failure,Storage Drive Failure
+
+Lenovo
+    Bronze:-
+    Silver:Power Cord Failure,Network Card Failure,
+    Gold:Power Cord Failure, Cooling System Failure,Network Card Failure,Battery Failure
+    Platinum:Motherboard Failure, PCIe Lane Failure,Power Cord Failure,Network Card Failure, Cooling System Failure,CPU Cooling Fan Failure, RAM Failure, Hard Drive Failure,Battery Failure
+
+Oracle
+    Bronze:Power Cord Failure, Cooling System Failure,CPU Cooling Fan Failure,Optical Drive Failure
+    Silver:Power Cord Failure, Cooling System Failure,CPU Cooling Fan Failure, Hard Drive Failure,Capacitor Failure,Optical Drive Failure
+    Gold:Power Cord Failure, Cooling System Failure,CPU Cooling Fan Failure,Network Card Failure, RAM Failure, Hard Drive Failure,Capacitor Failure,Optical Drive Failure
+    Platinum:Motherboard Failure, PCIe Lane Failure,Power Cord Failure, Network Card Failure,Cooling System Failure,CPU Cooling Fan Failure, RAM Failure, Hard Drive Failure,Battery Failure,Capacitor Failure,RAID Controller Failure,Optical Drive Failure
+
+IBM
+    Bronze:Power Cord Failure
+    Silver:Power Cord Failure, Cooling System Failure,Network Card Failure,RAID Controller Failure
+    Gold:Power Cord Failure, Cooling System Failure,Hard Drive Failure,Network Card Failure,Battery Failure,RAID Controller Failure,Storage Drive Failure
+    Platinum:Motherboard Failure, PCIe Lane Failure,Power Cord Failure, Network Card Failure,Cooling System Failure,CPU Cooling Fan Failure, RAM Failure, Hard Drive Failure,Battery Failure,RAID Controller Failure,Storage Drive Failure,Case Cooling Fan Failure

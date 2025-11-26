@@ -1,0 +1,13 @@
+Pe al doilea server de linux vreau sa creze 2 foldere unul scripts si unul data.
+In folderul de data sa se puna servers.json, servers_suport.txt si Subscription.txt.
+In folderul de scripts sa se creeze un fastapi server care sa aiba endpoints care fac:
+  1. Sa se creeze o clasa server care contine nume,ip,domeniu,country,type,os,memory si status. (nu este nevoie de endpoint)
+  2. Sa se afle ce servere sunt off si ce server sunt on.
+  3. Sa se afle ce domenii sunt off si ce domenii sunt on.
+  4. Sa se afle cate tipuri de servere exista si care servere sunt in ce categorie.
+  5. Serverele sunt pe regiuni, asta inseamna ca nu putem sa accesam o regiune daca toate serverele de jump sunt off, sa se afle daca exista regiuni inaccesibile.(toate jump serverele sunt off)
+  6. Intr-un fisier separat se afla versiuni de os la care nu se mai ofera suport sa se afle ce servere din baza de date au versiunile de os in afara suportului. (servers_suport)
+  7. Serverele de app trebuie sortate descrescator,dupa memeorie, astfel incat sa se afle primele 10 servere care au suficienta memorie pentru a pune o noua aplicatie (un server are suficienta memeorie daca are cel putin 30 GB)
+  8. Serverele de bd au si backup, pe fiecare regiune, dar poate pe unele nu exista suficient storage pe serverele de backup. Sa se verifice daca avem suficient sotrage/regiune daca nu sa se spuna cat storage mai trebuie.
+  9. Unele servere sunt on desi au probleme si altele sunt off desi nu au probeleme. Sa se identifice ce servere sunt on desi au probeleme si ce servere sunt off desi nu au probleme.
+  10. Serverele care au probleme trebuie verificate daca subscriptia lor acopera rezolvarea problemelor pe care le au. Exista un fisier numit subscriptions.txt in care se specifica ce probeleme sunt rezolvate de subscriptii.

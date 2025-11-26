@@ -1,0 +1,12 @@
+RHEL:
+RHEL 5.x: All RHEL 5 versions are end-of-life.
+RHEL 6.x: All RHEL 6 versions are end-of-life.
+CentOS:
+CentOS 6.x: All CentOS 6 versions are end-of-life.
+CentOS 7.x: All CentOS 7 versions are end-of-life.
+Ubuntu:
+Ubuntu 6.06.2 LTS: This version is very old and no longer supported.
+Ubuntu 6.10: This version is very old and no longer supported.
+Ubuntu 11.10: This version is very old and no longer supported.
+Ubuntu 15.04: This version is very old and no longer supported.
+Ubuntu 19.10: This version is no longer supported.

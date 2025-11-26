@@ -1,0 +1,86 @@
+version: "3.9"
+
+services:
+#  auth_server:
+#    image: python:3.12-slim
+#    container_name: auth_server
+#    ports:
+#      - "5001:5001"
+#    working_dir: /app
+#    volumes:
+#      - .:/app
+#    command: sh -c "pip install --no-cache-dir fastapi uvicorn pyjwt && uvicorn server.autserver:app --host 0.0.0.0 --port 5001"
+#    tty: true
+#    stdin_open: true
+#
+#  auth_server2:
+#    image: python:3.12-slim
+#    container_name: auth_server2
+#    ports:
+#      - "5003:5003"
+#    working_dir: /app
+#    volumes:
+#      - .:/app
+#    command: sh -c "pip install --no-cache-dir fastapi uvicorn pyjwt python-multipart && uvicorn second_server.autserver:app --host 0.0.0.0 --port 5003"
+#    tty: true
+#    stdin_open: true
+#
+#  linux1:
+#    image: debian
+#    container_name: linux1
+#    ports:
+#      - "5002:5002"
+#    working_dir: /app
+#    command: sh -c "apt update && apt install -y curl vim apt-utils net-tools iproute2 python3 python3-pip && apt-get clean && sh"
+#    tty: true
+#    stdin_open: true
+#
+#  linux2:
+#    image: debian
+#    container_name: linux2
+#    ports:
+#      - "5004:5004"
+#    working_dir: /app
+#    command: sh -c "apt update && apt install -y curl vim apt-utils net-tools iproute2 python3 python3-pip && apt-get clean && sh"
+#    tty: true
+#    stdin_open: true
+#
+#  broken_server:
+#    image: python:3.12-slim
+#    container_name: broken_server
+#    ports:
+#      - "5005:5005"
+#    working_dir: /app
+#    volumes:
+#      - .:/app
+#    command: sh -c "pip install --no-cache-dir fastapi uvicorn pyjwt python-multipart mysql-connector-python && uvicorn broken_server.server:app --host 0.0.0.0 --port 5005"
+#    tty: true
+#    stdin_open: true
+#
+#  mysql_server:
+#    image: mysql:8.0
+#    container_name: mysql_server
+#    environment:
+#      MYSQL_ROOT_PASSWORD: admin
+#      MYSQL_DATABASE: LAB
+#      MYSQL_USER: admin
+#      MYSQL_PASSWORD: admin
+#
+#    ports:
+#      - "3309:3306"
+#    volumes:
+#      - mysql_data:/var/lib/mysql
+
+  final_linux:
+    image: debian
+    container_name: final_linux
+    working_dir: /app
+    volumes:
+      - ./bad_scripts:/app
+    command: sh -c "apt update && apt install -y curl vim apt-utils net-tools iproute2 python3 python3-pip && apt-get clean && python3 bad_script.py"
+    tty: true
+    stdin_open: true
+
+volumes:
+  mysql_data:
+
