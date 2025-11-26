@@ -1,0 +1,8 @@
+.idea
+.venv
+
+bad_scripts/bad_result.txt
+.python-version
+
+__pycache__/
+*.pyc

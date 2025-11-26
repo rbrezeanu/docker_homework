@@ -6,12 +6,23 @@ import jwt
 from datetime import datetime, timedelta
 
 from starlette.responses import PlainTextResponse
-list_of_students=["Cosmin","Edi","Andrei","Vlad","Darius"]
+
+from pathlib import Path
+
+list_of_students=["Cosmin","Edi","Andrei","Vlad","Darius", "Rares"]
 app = FastAPI()
 
 # Secret key for JWT
 SECRET_KEY = "supersecretkey"
 
+BASE_DIR = Path(__file__).parent
+datadir = BASE_DIR / "data"
+results_dir = BASE_DIR / "results"
+results_dir.mkdir(exist_ok=True)
+
+class SaveResults(BaseModel):
+    filename: str
+    content: str
 
 def verify_token(authorization: str = Header(None)):
     if authorization is None:
@@ -62,6 +73,15 @@ def cerinta(payload: dict = Depends(verify_token)):
     except Exception as e:
         return e
 
+@app.get("/words", response_class=PlainTextResponse)
+def get_words(payload: dict = Depends(verify_token)):
+    try:
+        file_path = datadir / "long_words.txt"
+        with open(file_path, "r", encoding="utf-8") as f:
+            return f.read()
+    except Exception as e:
+        return e
+
 
 @app.get("/servers_suport", response_class=PlainTextResponse)
 def servers_suport(payload: dict = Depends(verify_token)):
@@ -87,3 +107,15 @@ def subscriptions(payload: dict = Depends(verify_token)):
 async def servers(payload: dict = Depends(verify_token)):
     with open("second_server/servers.json") as f:
         return json.load(f)
+
+
+
+@app.post("/save_results")
+def save_results(data: SaveResults, payload: dict = Depends(verify_token)):
+    try:
+        file_path = results_dir / data.filename
+        with open(file_path, "w") as f:
+            f.write(data.content)
+        return {"status": "ok", "saved_to": str(file_path)}
+    except Exception as e:
+        return e

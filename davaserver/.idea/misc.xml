@@ -3,5 +3,5 @@
   <component name="Black">
     <option name="sdkName" value="Python 3.9" />
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.9" project-jdk-type="Python SDK" />
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.11.13 WSL (Ubuntu): (/home/rbrezeanu/python_playground/tema_linux/davaserver/.venv/bin/python3)" project-jdk-type="Python SDK" />
 </project>

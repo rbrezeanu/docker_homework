@@ -2,14 +2,18 @@ from fastapi import FastAPI, HTTPException, Header, Depends
 from pydantic import BaseModel
 import jwt
 from datetime import datetime, timedelta
+import requests
 
 from starlette.responses import PlainTextResponse
+from server.process_words import extract_words_from_text, process_words
 
 app = FastAPI()
 
 # Secret key for JWT
 SECRET_KEY = "supersecretkey"
-list_of_students=["Cosmin","Edi","Andrei","Vlad","Darius"]
+list_of_students=["Cosmin","Edi","Andrei","Vlad","Darius","Rares"]
+
+SECOND_SERVER_ADDRESS =  "http://auth_server2:5003"
 
 # Pydantic model for login
 class LoginRequest(BaseModel):
@@ -69,3 +73,46 @@ def cerinta(payload: dict = Depends(verify_token)):
         return cerinta
     except Exception as e:
         return e
+
+@app.post("/run_words_pipeline")
+def run_words_pipeline(payload: dict = Depends(verify_token)):
+    username = payload["sub"]
+
+    login_resp = requests.post(
+        f"{SECOND_SERVER_ADDRESS}/login",
+        data={"username": username, "password": username},
+    )
+
+    if login_resp.status_code != 200:
+        raise HTTPException(500, "Cannot login to second server")
+
+    token2 = login_resp.json()["access_token"]
+    headers = {"Authorization": f"Bearer {token2}"}
+
+    # 2. Download the file from server 2
+    file_resp = requests.get(f"{SECOND_SERVER_ADDRESS}/words", headers=headers)
+    if file_resp.status_code != 200:
+        raise HTTPException(500, "Couldn't download file from second server")
+
+    words = extract_words_from_text(file_resp.text)
+
+    # 3. Process
+    results = process_words(words)
+
+    # 4. Upload each result to server 2
+    for filename, content in results.items():
+        save_resp = requests.post(
+            f"{SECOND_SERVER_ADDRESS}/save_results",
+            headers=headers,
+            json={
+                "filename": filename,
+                "content": content
+            }
+        )
+        if save_resp.status_code != 200:
+            raise HTTPException(
+                500,
+                f"Error while saving {filename}: {save_resp.text}"
+            )
+
+    return {"status": "success", "files_saved": list(results.keys())}
